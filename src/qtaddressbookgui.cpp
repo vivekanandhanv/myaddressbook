@@ -13,6 +13,7 @@
 #include "qtcontactlist.h"
 #include "qtcontactdetailview.h"
 #include "qteditcontactdialog.h"
+
 #include "qterrordialog.h"
 #include "contact.h"
 
@@ -45,10 +46,16 @@ void QtAddressBookGUI::createWidgets()
     editContactButton = new QPushButton("Edit");
     deleteContactButton = new QPushButton("Delete");
 
+
+
+
+
+
     QHBoxLayout *buttonLayout = new QHBoxLayout();
     buttonLayout->addWidget(newContactButton);
     buttonLayout->addWidget(editContactButton);
     buttonLayout->addWidget(deleteContactButton);
+
 
     QVBoxLayout *rightSideLayout = new QVBoxLayout();
     rightSideLayout->addWidget(detailView);
@@ -72,6 +79,8 @@ void QtAddressBookGUI::createWidgets()
 
     connect(editContactButton, SIGNAL(clicked()),
             this, SLOT(editContact()));
+
+
 
     //tell the sub-widgets to refresh their data from
     //

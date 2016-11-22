@@ -40,6 +40,7 @@ void QtEditContactDialog::fillForm()
     contactForm->addressField->setText(contactToEdit.address.c_str());
     contactForm->phoneNumberField->setText(contactToEdit.phoneNumber.c_str());
     contactForm->emailField->setText(contactToEdit.email.c_str());
+    contactForm->DOBField->setText(contactToEdit.DOB.c_str());
 
 }
 
@@ -50,6 +51,7 @@ void QtEditContactDialog::accept()
     contactToEdit.address = contactForm->addressField->text().toStdString();
     contactToEdit.phoneNumber = contactForm->phoneNumberField->text().toStdString();
     contactToEdit.email = contactForm->emailField->text().toStdString();
+    contactToEdit.DOB = contactForm->DOBField->text().toStdString();
 
     QDialog::accept();
 
