@@ -45,9 +45,8 @@ void QtAddressBookGUI::createWidgets()
     newContactButton = new QPushButton("New Contact");
     editContactButton = new QPushButton("Edit");
     deleteContactButton = new QPushButton("Delete");
-
-
-
+    searchContactButton = new QPushButton("Search");
+    searchContactField = new QLineEdit("");
 
 
 
@@ -55,6 +54,8 @@ void QtAddressBookGUI::createWidgets()
     buttonLayout->addWidget(newContactButton);
     buttonLayout->addWidget(editContactButton);
     buttonLayout->addWidget(deleteContactButton);
+    buttonLayout->addWidget(searchContactField);
+    buttonLayout->addWidget(searchContactButton);
 
 
     QVBoxLayout *rightSideLayout = new QVBoxLayout();
@@ -79,6 +80,9 @@ void QtAddressBookGUI::createWidgets()
 
     connect(editContactButton, SIGNAL(clicked()),
             this, SLOT(editContact()));
+    connect(searchContactButton, SIGNAL(clicked()),
+            this, SLOT(searchContact()));
+
 
 
 
@@ -214,5 +218,15 @@ void QtAddressBookGUI::deleteContact()
         delete errDialog;
         return;
     }
+
+
+
 }
 
+    void QtAddressBookGUI::searchContact()
+    {
+        std::string nameTosearch = searchContactField ->text().toStdString();
+        Contact::ContactId idOfSearchedItem = list->searchList(nameTosearch);
+        detailView ->clear();
+        detailView ->displayContact(idOfSearchedItem);
+    }

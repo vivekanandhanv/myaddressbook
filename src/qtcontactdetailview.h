@@ -28,7 +28,7 @@ class QtContactDetailView : public QGroupBox
 
         void clear();
 
-    private slots:
+    public slots:
         void displayContact(Contact::ContactId id);
 
     private:

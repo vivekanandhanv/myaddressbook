@@ -2,6 +2,7 @@
 #define UI_CONTACT_LIST
 
 #include <QListWidget>
+#include <QMessageBox>
 
 #include "addressbookmodel.h"
 #include "contact.h"
@@ -34,6 +35,7 @@ class QtContactList : public QListWidget
     public:
         QtContactList(AddressBookModel& model, QWidget *parent=0); 
         Contact::ContactId getSelectedContactId();
+        Contact::ContactId searchList(std::string);
 
     public slots:
         void refreshContactList(); 
