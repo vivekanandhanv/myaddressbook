@@ -102,8 +102,9 @@ Contact ::ContactId QtContactList :: searchList(std:: string name)
   Contact::ContactRecordSet::const_iterator contactrecordsetIterator;
 for (contactrecordsetIterator = allcontacts.begin();contactrecordsetIterator!= allcontacts.end();contactrecordsetIterator++)
     {
-
+      std::transform(nameforsearching.begin(), nameforsearching.end(), nameforsearching.begin(), std::ptr_fun<int, int>(std::tolower));
       std :: string ListItemfirstName = contactrecordsetIterator->firstName.c_str();
+      std::transform(ListItemfirstName.begin(), ListItemfirstName.end(), ListItemfirstName.begin(), std::ptr_fun<int, int>(std::tolower));
       if((nameforsearching)==(ListItemfirstName))
     {
         Contact::ContactId searchcontactid =contactrecordsetIterator ->id;
